@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 style="text-align: center; margin-top: 50px;">You should be ashamed of yourself</h1>
+  <% @sorted_games.each do |game| %>
+    <div style="margin-top: 20px; text-align: center; padding: 10px;">
+      <% time = (game["playtime_forever"].to_i / 60.0).round(1) %>
+      <p><%= game["name"] %></p>
+      <p>Hours spent playing:</p>
+      <h3><%= time %></h2>
+    </div>
+  <% end %>
+</div>
