@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container" style="text-align: center;">
+  <h1>Welcome to Steamy Stats</h1>
+  <h4>Find out how the time you've spent playing games on steam translates to other things you could've done in the same timeframe.</h4>
+  <%= simple_form_for :steam_id, url: steamcall_path do |f| %>
+    <%= f.input :steam_id, label: "Steam" %>
+    <%= f.submit %>
+  <% end %>
+  
+    
+</div>
