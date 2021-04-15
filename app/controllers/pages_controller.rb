@@ -11,7 +11,8 @@ class PagesController < ApplicationController
 
   def steam_call
     steam_id = params[:steam_id][:steam_id]
-    response = JSON.parse(open("https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=#{ENV['STEAM_API']}&steamid=#{steam_id}&format=json").read)
+    response = JSON.parse(open("http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=#{ENV['STEAM_API']}&steamid=#{steam_id}&include_appinfo=true&include_played_free_games=true&format=json").read)
+    parsed_response = response["response"]["games"].sort_by{ |game| game["playtime_forever"] }.reverse.first(10)
     raise
   end
 end
