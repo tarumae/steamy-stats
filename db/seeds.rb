@@ -6,4 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Statistic.create!(description: "", time:)
+Statistic.create!(description: "knitted a baby blanket", time: 960)
+Statistic.create!(description: "cleaned your house top to bottom", time: 300)
+Statistic.create!(description: "blown up and tied up an average sized balloon", time: 3)
+Statistic.create!(description: "watched your favourite Netflix show", time: 43)
+Statistic.create!(description: "walked your dog (if you have one)", time: 60)
+Statistic.create!(description: "stuck googly eyes on things ", time: 0.167)
