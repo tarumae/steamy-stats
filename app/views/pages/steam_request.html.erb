@@ -3,19 +3,19 @@
   <div style="text-align: center; margin-top: 10px;">
     <img src="https://media.giphy.com/media/vX9WcCiWwUF7G/giphy.gif" alt="" style="border-radius: 20px;">
   </div>
-    <div style="display: flex; align-items: center; flex-wrap: wrap;">
+    <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
       <% total_time = 0  %>
       <% @sorted_games.each do |game| %>
-        <div style="flex-grow: 1; background-color: lightgrey; margin: 20px; align-items: center; text-align: center; border-radius: 10px; padding: 20px;">
+        <div style="width: 300px; background-color: lightgrey; margin: 20px; align-items: center; text-align: center; border-radius: 10px; padding: 20px;">
           <% time = (game["playtime_forever"].to_i / 60.0).round(1) %>
           <% statistic = @statistics.sample %>
           <% total_time += game["playtime_forever"].to_i %>
           <p><%= game["name"] %></p>
           <p>Hours spent playing:</p>
           <h3><%= time %></h2>
-          <p>Within the time you spent playing <%= game["name"] %> you could have <%= statistic.description %> <%= game["playtime_forever"].to_i / statistic.time %> time(s)</p>
+          <p>Within the time you spent playing <%= game["name"] %> you could have <%= statistic.description %> <%= (game["playtime_forever"].to_i / statistic.time).round(1) %> time(s)</p>
         </div>
       <% end %>
     </div>
-    <p style="text-align: center;">Within the time you've spent playing those ten games, you could have ran around the equator <%= total_time / 41670 %> times.</p>
+    <p class="bg-danger" style="opacity: 0.8; padding: 20px; border-radius: 20px; text-align: center;">Within the time you've spent playing those ten games, you could have ran around the equator <%= total_time / 41670 %> times.</p>
 </div>
