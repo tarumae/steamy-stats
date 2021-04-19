@@ -13,9 +13,11 @@
           <p><%= game["name"] %></p>
           <p>Hours spent playing:</p>
           <h3><%= time %></h2>
-          <p>Within the time you spent playing <%= game["name"] %> you could have <%= statistic.description %> <%= (game["playtime_forever"].to_i / statistic.time).round(1) %> time(s)</p>
+          <p>Within the time you spent playing <%= game["name"] %> you could have <%= statistic.description %> <%= (game["playtime_forever"].to_i / statistic.time).round(1) %> time<%= "s" unless (game["playtime_forever"].to_i / statistic.time).round(1) == 1 %></p>
         </div>
       <% end %>
     </div>
-    <p class="bg-danger" style="opacity: 0.8; padding: 20px; border-radius: 20px; text-align: center;">Within the time you've spent playing those ten games, you could have ran around the equator <%= total_time / 41670 %> times.</p>
+    <% if total_time / 224109 >= 1 %>
+      <p class="bg-danger" style="opacity: 0.8; padding: 20px; border-radius: 20px; text-align: center;">Within the time you've spent playing those ten games, you could have ran around the equator <%= (total_time / 224109).round(1) %> time<%= "s" unless (total_time / 224109).round(1) == 1 %>.</p>
+    <% end %>
 </div>
